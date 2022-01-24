@@ -7,7 +7,8 @@ from datetime import date
 
 #Sorry for the lack of functions. It's my first project with Python and I learned as I went on.
 
-startseason = 2003
+startseason = 0
+current_round = -1
 season = 0
 drivername = ""
 driverposition = 0
@@ -37,12 +38,13 @@ def ergast_retrieve(api_endpoint: str):
     response = requests.get(url).json()
 
     return response['MRData']
-print("Staring season:")
-startseason = int(input())
+print("Starting season (2003-2021):")
+while startseason < 2003 or startseason > 2021:
+    startseason = int(input())
 season = startseason
-current_round = 1
-print("Current round:")
-current_round = int(input())
+print("Current round (recommended value: 1):")
+while current_round < 0 or current_round > 30:
+    current_round = int(input())
 
 race = ergast_retrieve(f'{season}/{current_round}/qualifying')
 results = race['RaceTable']['Races'][0]['QualifyingResults']

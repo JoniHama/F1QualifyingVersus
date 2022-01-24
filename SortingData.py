@@ -312,7 +312,7 @@ def create_column(season, races, qualitimestable, qualidifference, endoftheseaso
                                          qualidifference[x + 1]['teammate'].capitalize(): qualitimestable[x + 1][
                                              'teammate'],
                                          "Gap": qualidifference[x + 1]['time'],
-                                         "Average gap": endoftheseasondata[0]['time']
+                                         "Average gap": endoftheseasondata[2]['time']
                                          }
                 elif columndata2 and endoftheseasondata[0]['teammate'] != qualitimes_ignored[x]['teammatename']:
                     columndata2[x] = {drivername.capitalize(): qualitimes_ignored[x]['driver'],
